@@ -1,0 +1,19 @@
+{
+  "name": "learn-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start: exercise-1": "tsc-whats --onSuccess \" node dist/basics/exercise-1/app.js\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "save-dev": "^0.0.1-security",
+    "tsc-watch": "^6.0.4"
+  }
+}

@@ -1,48 +1,127 @@
 const teacher = {
-    name: 'juan',
-    lastName: 'jimenez'
+    name: 'Yhoan',
+    lastName: 'Galeano',
+    age: 29
 };
 
-console.log('teacher:', teacher);
+console.log('Teacher is json:', teacher);
 
-// primitivos
-//booleans
-//declaracion implicita
+// Primitivos
+// Booleans
+// Declaración implícita
+const isTeacher = true; // Toma el valor con el cual fue declarado y ese es el tipo
+let isPlayer = true; // Tomo el tipo del valor que le fue asignado
+isPlayer = false;
 
-const isTeacher = true; //to el valor con el cual fue declarado 
-let isPlayer = true; // tomo el tipo de el valor que le fue asignado
-isPlayer = false; 
+// Declaración explicita
+const hasErrors: boolean = false;
+let isChampion: boolean = false;
 
-// declaración explicita
-const hasErrors:boolean = false;
-let isChampion: Boolean = false;
+let result = hasErrors ? 'Tiene errores' : 'No tiene errores';
 
-let result = hasErrors ? 'tiene errores' : 'no tiene errores'
+// String
+const firstName = 'Yhoan';
+const lastName = "Galeano";
 
-//string
-const firsName = 'juan';
-const lastName = "jimenez";
-
-let fullName = 'su nombre es: $ (firsName) $(lastName), bienvenido';
+let fullName: string = `Su nombre es: ${firstName} ${lastName}, bienvenido`;
 console.log(fullName.toUpperCase());
 
-//number
- 
-let countStudents: number = 29.5;
-let everage: number = 4.5;
+// Number
+let countStudents: number = 29;
+let average: number = 4.5;
 
-console.log(everage.toFixed())
+console.log(average.toFixed())
 
 
-//array
-let fruits = ['pera','banano'];
-let sports: string[] = ['futbol','baloncesto'];
+// Array
+let fruits = ['pera', 'banano'];
+let sports: string[] = ['futbol', 'baloncesto'];
 
 type stringOrNull = string | null;
 
-//union types
-let students: Array<string | null> = ['nico','yhoan', null];
-console.log(students.filter((student)  => student !== null));
+// Union types
+let students: Array<stringOrNull> = ['Nico', 'Yhoan', null, 'Rayffer', null, 'Ana'];
+console.log(students.filter((student) => student !== null));
 
-//tuplas
-let exampleTuple : [null,string ] = [null,'pedro']
+// Tuplas
+let exampleTuple: [string, null] = ['hola', null];
+
+// Tipos personalizados
+type statusCode = 'active' | 'inactive';
+
+let studentStatus: statusCode = 'inactive';
+
+//Any
+let working: any = 25;
+working = 'hola';
+
+//funciones
+//function nombrefuncion(parametro: tipoDato): tipoDeDatoQueRetornaUnaFuncion( )
+
+function validateValue(value: unknown): boolean {
+    // unknown que es un tipo de dato que es desconocido
+    //para cualquier validación que deba hacer con el dato
+    //debo primero saber o validar que tipo de dato es 
+    if (typeof value === 'string') {
+        console.log(value.trim().toUpperCase());
+    } else if (typeof value === 'number'){
+        console.log(value.toFixed());
+    }
+    if (value === '') {
+        return false;
+
+    } else {
+        return true;
+    }
+
+}
+
+function getFullName (firstName: string, lastName: string): string {
+    return `${firstName} ${lastName}`;
+}
+
+//void
+function processResponse(saved: boolean ): void{
+    if (saved) {
+        console.log('guardado');
+
+    }else {
+        console.log('ocurrió un error');
+    }
+}
+
+
+
+
+
+
+
+console.log(getFullName(firstName, lastName));
+processResponse(true);
+// la numeración  me permite crear diccionarios sea numéricos o string para evitar los string mágicos 
+enum Role{
+    Admin ,
+    Client,
+    User,
+    SuperAdmin
+}
+
+
+let users: Array< { name: string, role: Role } > = [
+    {
+        name: 'pepito',
+        role: Role.Admin
+    },
+    {
+        name: 'juanito',
+        role: Role.Client
+
+    },
+    {
+        name: 'fulanito',
+        role: Role.Client
+
+    },
+]
+
+console.log(users.filter( (users) => users.role === Role.Client  ));

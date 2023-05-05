@@ -51,8 +51,8 @@ class Auto2 {
     // En el constructor yo puedo crear propiedades de la clase
     //si y solo si tienen el modificador de acceso (public, private, protected)
 
-    //los parametros que son opcionales, sienmpre debe ir al final de cualquier metodo o funcion
-    //en este caso el constructos es un metodo
+    //los parámetros que son opcionales, siempre debe ir al final de cualquier método o función
+    //en este caso el constructor es un método
     constructor(public peso: number, public marca?: string) {
         this.puertas = 4;
         this.encender();
@@ -63,7 +63,7 @@ class Auto2 {
     }
 
     private encender(){
-        console.log(`Biemvenido ${this.marca}, tu color es: ${this.color}, tu peso es: ${this.peso}, y tienes ${this.puertas} puertas.`);
+        console.log(`Bienvenido ${this.marca}, tu color es: ${this.color}, tu peso es: ${this.peso}, y tienes ${this.puertas} puertas.`);
     }
 
 

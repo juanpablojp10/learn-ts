@@ -51,77 +51,75 @@ type statusCode = 'active' | 'inactive';
 
 let studentStatus: statusCode = 'inactive';
 
-//Any
+// Any
 let working: any = 25;
 working = 'hola';
 
-//funciones
-//function nombrefuncion(parametro: tipoDato): tipoDeDatoQueRetornaUnaFuncion( )
-
+// Funciones
+/**
+ * function nombreFuncion(parametro: tipoDato): tipoDatoQueRetornaLaFuncion { }
+ */
 function validateValue(value: unknown): boolean {
+
     // unknown que es un tipo de dato que es desconocido
-    //para cualquier validación que deba hacer con el dato
-    //debo primero saber o validar que tipo de dato es 
+    // para cualquier validación que deba hacer con el dato
+    // debo primero saber o validar que tipo de dato es
     if (typeof value === 'string') {
         console.log(value.trim().toUpperCase());
-    } else if (typeof value === 'number'){
+    } else if (typeof value === 'number') {
         console.log(value.toFixed());
     }
+
     if (value === '') {
         return false;
-
     } else {
         return true;
     }
 
 }
 
-function getFullName (firstName: string, lastName: string): string {
+function getFullName(firstName: string, lastName: string): string {
+
     return `${firstName} ${lastName}`;
+
 }
 
-//void
-function processResponse(saved: boolean ): void{
+// Void
+function processResponse( saved: boolean ): void {
+
     if (saved) {
-        console.log('guardado');
-
-    }else {
-        console.log('ocurrió un error');
+        console.log('Guardado');
+    } else {
+        console.log('Ocurrió un error');
     }
+
 }
 
 
-
-
-
-
-
-console.log(getFullName(firstName, lastName));
+console.log( getFullName(firstName, lastName)  );
 processResponse(true);
-// la numeración  me permite crear diccionarios sea numéricos o string para evitar los string mágicos 
-enum Role{
-    Admin ,
+
+
+enum Role {
+    Admin,
     Client,
-    User,
+    Users,
     SuperAdmin
 }
 
-
 let users: Array< { name: string, role: Role } > = [
     {
-        name: 'pepito',
+        name: 'Pepito',
         role: Role.Admin
     },
     {
-        name: 'juanito',
+        name: 'Juanito',
         role: Role.Client
-
     },
     {
-        name: 'fulanito',
+        name: 'Fulanito',
         role: Role.Client
-
-    },
+    }
 ]
 
-console.log(users.filter( (users) => users.role === Role.Client  ));
+console.log( users.filter( (user) => user.role === Role.Client  ) );
